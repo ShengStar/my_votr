@@ -158,12 +158,12 @@ class DataBaseSampler(object):
         gt_boxes = data_dict['gt_boxes'][gt_boxes_mask]
         gt_names = data_dict['gt_names'][gt_boxes_mask]
         points = data_dict['points']
-        if self.sampler_cfg.get('USE_ROAD_PLANE', False):
-            sampled_gt_boxes, mv_height = self.put_boxes_on_road_planes(
-                sampled_gt_boxes, data_dict['road_plane'], data_dict['calib']
-            )
-            data_dict.pop('calib')
-            data_dict.pop('road_plane')
+        # if self.sampler_cfg.get('USE_ROAD_PLANE', False):
+        #     sampled_gt_boxes, mv_height = self.put_boxes_on_road_planes(
+        #         sampled_gt_boxes, data_dict['road_plane'], data_dict['calib']
+        #     )
+        #     data_dict.pop('calib')
+        #     data_dict.pop('road_plane')
 
         obj_points_list = []
         if self.use_shared_memory:
@@ -183,9 +183,9 @@ class DataBaseSampler(object):
 
             obj_points[:, :3] += info['box3d_lidar'][:3]
 
-            if self.sampler_cfg.get('USE_ROAD_PLANE', False):
-                # mv height
-                obj_points[:, 2] -= mv_height[idx]
+            # if self.sampler_cfg.get('USE_ROAD_PLANE', False):
+            #     # mv height
+            #     obj_points[:, 2] -= mv_height[idx]
 
             obj_points_list.append(obj_points)
 
