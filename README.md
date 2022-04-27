@@ -1,6 +1,6 @@
 <img src="docs/open_mmlab.png" align="right" width="30%">
 
-# OpenPCDet
+# My Transformer based on OpenPCDet3D
 
 `OpenPCDet` is a clear, simple, self-contained open source project for LiDAR-based 3D object detection. 
 
